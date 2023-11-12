@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sudoku Çözücü</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      border: 1px solid black;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="./(files/sudokuscript.js"></script>
+</head>
+<body>
+<h1>Sudoku Solver</h1>
+  <table id="sudokuTable">
+    <!-- Sudoku tahtasını oluşturmak için boş hücreler -->
+    <!-- Boş hücreler için <td></td> kullanılıyor -->
+    <tr id="tr1">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr2">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr3">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr4">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr5">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr6">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr7">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+	    <tr id="tr8">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+		    <tr id="tr9">
+      <td contenteditable="true" id="td1"></td>
+      <td contenteditable="true" id="td2"></td>
+      <td contenteditable="true" id="td3"></td>
+      <td contenteditable="true" id="td4"></td>
+      <td contenteditable="true" id="td5"></td>
+      <td contenteditable="true" id="td6"></td>
+      <td contenteditable="true" id="td7"></td>
+      <td contenteditable="true" id="td8"></td>
+      <td contenteditable="true" id="td9"></td>
+    </tr>
+    <!-- Diğer satırlar için aynı yapıyı tekrar edin -->
+    <!-- Toplamda 9 satır olacak -->
+  </table>
+  <br>
+  <button onclick="getSudoku(board)">Sudoku Çöz</button>
+  <br>
+  <h3>Çözülmüş Sudoku:</h3>
+  <table id="solvedTable">
+    <!-- Sudoku çözümünü göstermek için boş hücreler -->
+  </table>
+
+</body>
+</html>
