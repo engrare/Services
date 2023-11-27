@@ -21,6 +21,8 @@ $( document ).ready(function() {
 			$( '#main_menu_content_' + (i - 1)).clone().insertAfter( '#main_menu_content_' + (i - 1) ).prop('id', 'main_menu_content_' + i);
 		}
 		$( '#main_menu_content_' + i + " .main_container_inner_text .content_text").text(sites_names[i]);
+		$( '#main_menu_content_' + i).attr("onclick","window.open(\'./" + sites_names[i] + "\')");
+		
 	}
 
   
