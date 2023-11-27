@@ -1,3 +1,6 @@
+var sites_names = ["converter", "sudoku"];
+
+
 fetch('https://raw.githubusercontent.com/eylulberil/encoded_key/main/keys.json')
   .then(response => response.json())
   .then(myObj => {
@@ -11,8 +14,14 @@ fetch('https://raw.githubusercontent.com/eylulberil/encoded_key/main/keys.json')
   });
 
 $( document ).ready(function() {
-
-
+	var sitecount = sites_names.length;
+	
+	for(var i = 0; i < sitecount; i++) {
+		if(i > 0) {
+			$( '#main_menu_content_' + (i - 1)).clone().insertAfter( '#main_menu_content_' + (i - 1) ).prop('id', 'main_menu_content_' + i);
+		}
+		$( '#main_menu_content_' + i + " .main_container_inner_text .content_text").text(sites_names[i]);
+	}
 
   
 });
